@@ -28,24 +28,6 @@ Author: **Mikhail Klimenok**
 | ExtentReports     | Test reporting                      |
 | WebDriverManager  | Driver binaries management          |
 
-## 📂 Project Structure
-
-```
-test-framework/
-├── src/
-│   ├── main/
-│   └── test/
-│       ├── java/
-│       │   ├── base/           # Base classes
-│       │   ├── pages/          # Page Object classes
-│       │   ├── tests/          # Test cases
-│       │   ├── utils/          # Utility classes (e.g. waits, configs)
-│       │   └── report/         # Extent report setup
-│       └── resources/          # Config files (e.g. testng.xml)
-├── pom.xml                    # Maven config
-└── README.md                  # This file
-```
-
 ## 🧪 Sample Test Cases
 
 - ✅ `SampleTest.java` – opens Google and verifies the page
