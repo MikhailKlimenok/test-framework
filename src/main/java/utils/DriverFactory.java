@@ -7,6 +7,10 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 import java.util.Arrays;
 import java.util.UUID;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.time.Duration;
 
 public class DriverFactory {
     private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
@@ -24,12 +28,18 @@ public class DriverFactory {
 
         // In CI (GitHub Actions), use a unique profile directory to avoid conflicts
         if (System.getenv("GITHUB_ACTIONS") != null) {
-            String uniqueProfile = "/tmp/chrome-profile-" + UUID.randomUUID();
-            options.addArguments("--user-data-dir=" + uniqueProfile);
+            try {
+                Path tempDir = Files.createTempDirectory("chrome-profile-");
+                options.addArguments("--user-data-dir=" + tempDir.toAbsolutePath());
+            } catch (IOException e) {
+                throw new RuntimeException("Failed to create temporary profile dir for Chrome", e);
+            }
         }
 
         driver.set(new ChromeDriver(options));
+        driver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get().manage().window().maximize();
+
     }
 
     public static WebDriver getDriver() {

@@ -45,3 +45,16 @@
 2025-04-06 21:13:37 [main] INFO  tests.GoogleSearchSuccessTest - Starting test: searchInGoogle
 2025-04-06 21:14:21 [main] INFO  tests.GoogleSearchSuccessTest - Test passed: searchInGoogle
 2025-04-06 21:14:23 [main] INFO  tests.GoogleSearchSuccessTest - Starting test: searchInGoogle
+2025-04-06 21:15:08 [main] INFO  tests.GoogleSearchSuccessTest - Test passed: searchInGoogle
+2025-04-06 21:15:10 [main] INFO  tests.GoogleSearchSuccessTest - Starting test: searchInGoogle
+2025-04-06 21:15:53 [main] INFO  tests.GoogleSearchSuccessTest - Test passed: searchInGoogle
+2025-04-06 21:23:26 [main] INFO  tests.SampleTest - Starting test: openGoogle
+2025-04-06 21:23:29 [main] INFO  tests.SampleTest - Test passed: openGoogle
+2025-04-06 21:23:30 [main] INFO  tests.ThisTestWillDefinitelyFail - Starting test: elementShouldBePresentButIsNot
+2025-04-06 21:23:42 [main] ERROR tests.ThisTestWillDefinitelyFail - Test failed: elementShouldBePresentButIsNot
+2025-04-06 21:23:43 [main] INFO  tests.GoogleSearchSuccessTest - Starting test: searchInGoogle
+2025-04-06 21:24:27 [main] INFO  tests.GoogleSearchSuccessTest - Test passed: searchInGoogle
+2025-04-06 21:24:28 [main] INFO  tests.GoogleSearchSuccessTest - Starting test: searchInGoogle
+2025-04-06 21:25:51 [main] INFO  tests.GoogleSearchSuccessTest - Test passed: searchInGoogle
+2025-04-06 21:25:52 [main] INFO  tests.GoogleSearchSuccessTest - Starting test: searchInGoogle
+2025-04-06 21:26:34 [main] INFO  tests.GoogleSearchSuccessTest - Test passed: searchInGoogle
