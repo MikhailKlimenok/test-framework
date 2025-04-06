@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 import java.util.Arrays;
+import java.util.UUID;
 
 public class DriverFactory {
     private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
@@ -20,6 +21,12 @@ public class DriverFactory {
         options.setExperimentalOption("excludeSwitches", Arrays.asList("enable-automation"));
         options.setExperimentalOption("useAutomationExtension", false);
         options.addArguments("--disable-blink-features=AutomationControlled");
+
+        if (System.getenv("GITHUB_ACTIONS") != null) {
+            String tempProfileDir = "/tmp/chrome-profile-" + UUID.randomUUID();
+            options.addArguments("--user-data-dir=" + tempProfileDir);
+        }
+
 
         driver.set(new ChromeDriver(options));
         driver.get().manage().window().maximize();
