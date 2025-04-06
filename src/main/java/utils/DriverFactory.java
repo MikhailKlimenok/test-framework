@@ -22,11 +22,11 @@ public class DriverFactory {
         options.setExperimentalOption("useAutomationExtension", false);
         options.addArguments("--disable-blink-features=AutomationControlled");
 
+        // In CI (GitHub Actions), use a unique profile directory to avoid conflicts
         if (System.getenv("GITHUB_ACTIONS") != null) {
-            String tempProfileDir = "/tmp/chrome-profile-" + UUID.randomUUID();
-            options.addArguments("--user-data-dir=" + tempProfileDir);
+            String uniqueProfile = "/tmp/chrome-profile-" + UUID.randomUUID();
+            options.addArguments("--user-data-dir=" + uniqueProfile);
         }
-
 
         driver.set(new ChromeDriver(options));
         driver.get().manage().window().maximize();
