@@ -2,12 +2,14 @@ package base;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import report.ExtentManager;
 import utils.DriverFactory;
+import utils.ScreenshotUtil;
 
 import java.lang.reflect.Method;
 
@@ -37,7 +39,16 @@ public class BaseTest {
     @AfterMethod
     public void tearDown(ITestResult result) {
         if (result.getStatus() == ITestResult.FAILURE) {
-            testLevelLog.get().fail(result.getThrowable());
+            // Take screenshot
+            String screenshotPath = ScreenshotUtil.takeScreenshot(result.getName());
+            // log and add screenshot в ExtentReports
+            try {
+                testLevelLog.get().fail(result.getThrowable(),
+                        MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
+            } catch (Exception e) {
+                testLevelLog.get().fail("Failed to attach screenshot: " + e.getMessage());
+            }
+            //testLevelLog.get().fail(result.getThrowable());
             logger.error("Test failed: " + result.getName());
         } else if (result.getStatus() == ITestResult.SUCCESS) {
             testLevelLog.get().pass("Test passed");
