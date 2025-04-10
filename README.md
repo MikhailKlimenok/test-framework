@@ -38,6 +38,11 @@ mvn clean test
 HTML report will be saved to:  
 `test-output/extent-report.html`
 
+## CI Integration
+
+Includes a GitHub Actions workflow:  
+`.github/workflows/maven-tests.yml` — runs Maven tests on push and pull requests
+
 ## Requirements  
 - Java 24+  
 - Maven 3.8+  
