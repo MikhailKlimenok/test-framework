@@ -3,7 +3,8 @@
 A simple training project for practicing test automation using Selenium, TestNG, Java 24, and ExtentReports.
 
 ## Author  
-Mikhail Klimenok
+**Mikhail Klimenok**  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/mikhail-klimenok/)
 
 ## Key Features  
 - Page Object Model structure  
