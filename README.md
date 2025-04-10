@@ -1,63 +1,49 @@
 # Test Automation Framework
 
-A modern, lightweight test automation framework for UI testing using **Selenium**, **TestNG**, **Java 24**, and **ExtentReports**.
+A simple training project for practicing test automation using Selenium, TestNG, Java 24, and ExtentReports.
 
-Author: **Mikhail Klimenok**
+## Author  
+Mikhail Klimenok
 
-## ✅ Features
+## Key Features  
+- Page Object Model structure  
+- TestNG + Selenium WebDriver  
+- Screenshot capture on test failure  
+- HTML reports via ExtentReports  
+- Custom WebDriver waits (visibility, clickability, etc.)  
+- Logging with Log4j  
+- Clean structure for typical web test scenarios  
 
-- 🧪 **Test Framework** based on **TestNG**
-- 🌐 **Selenium WebDriver** with support for Google Chrome
-- 💡 **Page Object Model (POM)** structure
-- 📸 **Screenshot capture** on test failure
-- 📊 **HTML reports** via **ExtentReports**
-- 🔁 **Retry logic** for flaky tests (via `IRetryAnalyzer`)
-- 🔍 **Custom WebDriver waits** (e.g. for visibility or clickability)
-- 🧾 **Logging** with **Log4j**
-- 📁 Project structure optimized for real-world web UI test cases
+## Tech Stack  
+| Tool               | Purpose                    |
+|--------------------|----------------------------|
+| Java 24            | Programming language       |
+| TestNG             | Test framework             |
+| Selenium WebDriver | Browser automation         |
+| Maven              | Dependency management      |
+| Log4j              | Logging                    |
+| ExtentReports      | HTML reporting             |
+| WebDriverManager   | Driver binary management   |
 
-## 🧠 Tech Stack
+## Sample Test Cases  
+- `SampleTest.java` – opens Google and checks the title  
+- `ThisTestWillDefinitelyFail.java` – intentionally fails (for demo purposes)  
+- `GoogleSearchSuccessTest.java` – searches Google with keywords via @DataProvider  
 
-| Tool              | Purpose                             |
-|-------------------|-------------------------------------|
-| Java 24           | Programming language                |
-| TestNG            | Test runner & annotations           |
-| Selenium WebDriver| UI automation                       |
-| Maven             | Dependency management               |
-| Log4j             | Logging                             |
-| ExtentReports     | Test reporting                      |
-| WebDriverManager  | Driver binaries management          |
-
-## 🧪 Sample Test Cases
-
-- ✅ `SampleTest.java` – opens Google and verifies the page
-- ❌ `ThisTestWillDefinitelyFail.java` – always fails by trying to find a nonexistent element
-- ✅ `GoogleSearchSuccessTest.java` – performs a Google search for different keywords using `@DataProvider`
-
-## ▶️ Running Tests
-
+## How to Run  
 ```bash
 mvn clean test
 ```
 
-Test results are printed to the console, and HTML reports are saved to:
+HTML report will be saved to:  
+`test-output/extent-report.html`
 
-```
-test-framework/target/ExtentReports/
-```
+## Requirements  
+- Java 24+  
+- Maven 3.8+  
+- Latest Google Chrome  
+- Internet access for live search tests
 
-## 🛠 Prerequisites
-
-- Java 24+
-- Maven 3.8+
-- Google Chrome (latest)
-- Internet access for actual search tests
-
-## 📌 Notes
-
-- If Chrome updates and you encounter `CDP version` warnings, update `WebDriverManager` or match your ChromeDriver version.
-- Some test cases are intentionally designed to fail (e.g., to demonstrate logging/reporting).
-
----
-
-Happy Testing! 🧪
+## Notes  
+- If Chrome updates and you see CDP warnings, update WebDriverManager or align ChromeDriver version.  
+- Some tests are meant to fail to demonstrate logging and reporting.
